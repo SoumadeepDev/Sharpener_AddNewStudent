@@ -62,8 +62,8 @@ const Home = () => {
   return (
     <div className="container">
       <h1>Student Management</h1>
-      <p>Total Students: {totalStudents}</p> {/* Display total students */}
-      <button onClick={handleShow} className="btn">
+      <p>Total Students: {totalStudents}</p>
+      <button onClick={handleShow} className="addbtn">
         Add New Student
       </button>
       {students.map((student) => (
