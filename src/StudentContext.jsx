@@ -6,8 +6,9 @@ const StudentProvider = ({ children }) => {
   const [students, setStudents] = useState([]);
   const [totalStudents, setTotalStudents] = useState(0);
 
+  //updating students length whenever we see any change in student array
   useEffect(() => {
-    setTotalStudents(students.length); // Update totalStudents whenever students array changes
+    setTotalStudents(students.length);
   }, [students]);
 
   const addStudent = (student) => {

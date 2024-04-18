@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import { useContext, useState } from "react";
 import { StudentContext } from "../StudentContext";
 
 const Home = () => {
@@ -16,6 +16,7 @@ const Home = () => {
     setShowModal(false);
     setEditMode(false);
     setEditId("");
+    resetForm();
   };
 
   const handleShow = () => setShowModal(true);
@@ -52,12 +53,19 @@ const Home = () => {
       handleShow();
     }
   };
+  const resetForm = () => {
+    setName("");
+    setMobile("");
+    setAddress("");
+  };
 
   return (
     <div className="container">
       <h1>Student Management</h1>
       <p>Total Students: {totalStudents}</p> {/* Display total students */}
-      <button onClick={handleShow}>Add New Student</button>
+      <button onClick={handleShow} className="btn">
+        Add New Student
+      </button>
       {students.map((student) => (
         <div className="student-card" key={student.id}>
           <p>Name: {student.name}</p>
@@ -69,9 +77,6 @@ const Home = () => {
       ))}
       <div className={`modal ${showModal ? "active" : ""}`}>
         <div className="modal-content">
-          <span className="close" onClick={handleClose}>
-            &times;
-          </span>
           <h2>{editMode ? "Edit Student" : "Add New Student"}</h2>
           <form>
             <div className="form-group">
